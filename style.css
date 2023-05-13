@@ -1,0 +1,347 @@
+@font-face {
+  font-family: myComicFont;
+  src: url(./assets/Comics\ Deluxe.otf);
+}
+@font-face {
+  font-family: myCocogooseFont;
+  src: url(./assets/Cocogoose\ Pro-trial.ttf);
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background-color: #045de9;
+  background-image: linear-gradient(315deg, #045de9 0%, #76e1ff 74%);
+}
+/**********************
+    LANDING SECTION
+**********************/
+.landingSection {
+  display: flex;
+  gap: 3rem;
+  position: absolute;
+  align-items: center;
+  top: 5rem;
+  /* display: none; */
+}
+.landingSection table {
+  border-collapse: collapse;
+  box-shadow: 1px 1px 5px black;
+}
+td.logo {
+  height: 4rem;
+  width: 4rem;
+  text-align: center;
+  font-family: myComicFont, sans-serif;
+  border: 1rem solid #9b7ede;
+  font-size: 3rem;
+  background: #440381;
+
+  color: red;
+}
+td.Dcolor {
+  color: gold;
+}
+.categories button {
+  display: block;
+  height: 3rem;
+  width: 12rem;
+  margin-bottom: 1rem;
+  font-family: myCocogooseFont, sans-serif;
+  font-size: 1.1rem;
+  color: white;
+  border: none;
+  border-radius: 2rem;
+  box-shadow: 1px 1px 2px black;
+}
+#singlePlayer {
+  background-color: #c154c1;
+  background-image: linear-gradient(315deg, #c154c1 0%, #ff6ecf 74%);
+}
+#singlePlayer:hover {
+  outline-offset: 2px;
+  outline: 3px solid #ff6ecf;
+  box-shadow: none;
+}
+#multiPlayer {
+  background-color: gold;
+  background-image: linear-gradient(315deg, gold 0%, rgb(255, 0, 144) 74%);
+}
+#multiPlayer:hover {
+  outline-offset: 2px;
+  outline: 3px solid rgb(255, 0, 144);
+  box-shadow: none;
+}
+/*****************
+    BOT SECTION
+*****************/
+.botSection {
+  background: none;
+  border: none;
+}
+.bot {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+}
+.botAvatar {
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  padding: 0.5rem;
+  background: gold;
+  z-index: 2;
+  box-shadow: 1px 1px 2px black;
+}
+.difficultBot .botAvatar {
+  background: red;
+}
+.bot span {
+  display: block;
+  font-family: myCocogooseFont, sans-serif;
+  font-size: 1.3rem;
+  color: white;
+  padding: 1rem;
+  width: 16rem;
+  text-align: center;
+  border-radius: 2rem;
+  transform: translateX(-3rem);
+  z-index: 1;
+  box-shadow: 1px 1px 2px black;
+}
+.easyBot span {
+  border: 4px solid gold;
+  background-color: rgb(255, 0, 144);
+}
+.difficultBot span {
+  border: 4px solid red;
+  background-color: lime;
+}
+.goBackBtn {
+  border-radius: 50%;
+  border: none;
+  background: #440381;
+}
+.goBackBtn svg {
+  height: 2.2rem;
+  width: 2rem;
+  fill: #af91f3;
+}
+
+/****************
+    GAME SECTION 
+*****************/
+.gameSection {
+  display: flex;
+  gap: 3rem;
+}
+.gameSectionWrapper {
+  position: absolute;
+  top: 5rem;
+  display: none;
+}
+
+table.gameBoard {
+  border-collapse: collapse;
+  box-shadow: 2px 2px 10px black;
+}
+td.cell {
+  height: 6rem;
+  width: 6rem;
+  border: 1rem solid #9b7ede;
+  background-color: #440381;
+  text-align: center;
+  font-size: 4.2rem;
+  font-family: myComicFont, sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  color: white;
+  transition: background-color, color ease-in 0.5s;
+}
+tr:first-child td.cell {
+  border-top: none;
+}
+tr:last-child td.cell {
+  border-bottom: none;
+}
+tr td.cell:first-child {
+  border-left: none;
+}
+tr td.cell:last-child {
+  border-right: none;
+}
+.player {
+  height: 7rem;
+  width: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1rem;
+  align-self: start;
+  background: #440381;
+  padding: 0.5rem;
+  overflow: hidden;
+}
+.avatar {
+  height: 3rem;
+  width: 3rem;
+}
+.nameSpan {
+  font-family: myCocogooseFont, sans-serif;
+  color: white;
+}
+.token {
+  font-family: myComicFont, sans-serif;
+  color: gold;
+  font-size: 2rem;
+  user-select: none;
+}
+.playerTwoToken {
+  color: red;
+}
+.goBackBtn.gameBackButton {
+  margin-top: 1rem;
+}
+.cell.red {
+  color: red;
+}
+.cell.gold {
+  color: gold;
+}
+.cell.winner {
+  background-color: lime;
+  color: white;
+}
+.cell.loser {
+  background-color: rgb(255, 0, 144);
+  color: white;
+}
+/**************************
+    FOOTER SECTION 
+**************************/
+footer {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 95vh;
+  gap: 1rem;
+}
+footer span {
+  font-family: monospace, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #440381;
+}
+.sourceCode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  border-radius: 0.8rem;
+  height: 2rem;
+  width: 10rem;
+}
+.sourceCode svg {
+  display: inline;
+  height: 1.4rem;
+  width: 1.4rem;
+  fill: white;
+}
+.sourceCode span {
+  font-family: sans-serif;
+  font-weight: 10;
+  color: white;
+}
+.sourceCode:hover {
+  border: 2px solid #ff6ecf;
+}
+/************************
+    MODAL
+************************/
+form label {
+  display: block;
+  margin-top: 0.5rem;
+}
+.singleFormModal,
+.doubleFormModal {
+  background: #440381;
+  padding: 3rem;
+}
+.doubleFormModal::backdrop,
+.singleFormModal::backdrop {
+  background-color: #045de9;
+  background-image: linear-gradient(315deg, #045de9 0%, #76e1ff 74%);
+}
+.goBackBtn.modalBackButton {
+  width: 3rem;
+  height: 3rem;
+}
+.goBackBtn.modalBackButton:hover svg {
+  fill: aqua;
+}
+dialog h1 {
+  color: white;
+  font-family: myCocogooseFont, sans-serif;
+  color: #9b7ede;
+}
+label span {
+  color: #ff6ecf;
+  font-family: myCocogooseFont, sans-serif;
+}
+label input {
+  border: none;
+  padding: 0.5rem;
+  background-color: #440381;
+  font-size: 1.1rem;
+  border-bottom: 2px solid #af91f3;
+  width: 20rem;
+  color: white;
+}
+label input:focus {
+  outline: none;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+label input::placeholder {
+  color: #9b7ede;
+}
+form button {
+  background: #9b7ede;
+  border: none;
+  color: white;
+  font-family: myCocogooseFont, sans-serif;
+  padding: 0.5rem;
+  width: 100%;
+  height: 3rem;
+  margin-top: 1rem;
+}
+form button:hover {
+  outline-offset: 2px;
+  outline: 2px solid #9b7ede;
+}
+.singleFormModal[open],
+.doubleFormModal[open] {
+  -webkit-animation: show 1s ease normal;
+}
+.singleFormModal[open]::backdrop,
+.doubleFormModal[open]::backdrop {
+  -webkit-animation: backdrop 1s ease normal;
+}
+@-webkit-keyframes show {
+  from {
+    transform: translateY(-110%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+@-webkit-keyframes backdrop {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

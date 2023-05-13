@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>TicTacToe|Online</title>
+  </head>
+  <body>
+    <div class="landingSection">
+      <table>
+        <tr>
+          <td class="logo">T</td>
+          <td class="logo Dcolor">I</td>
+          <td class="logo">C</td>
+        </tr>
+        <tr>
+          <td class="logo Dcolor">T</td>
+          <td class="logo">A</td>
+          <td class="logo Dcolor">C</td>
+        </tr>
+        <tr>
+          <td class="logo">T</td>
+          <td class="logo Dcolor">O</td>
+          <td class="logo">E</td>
+        </tr>
+      </table>
+      <div class="categories">
+        <button id="singlePlayer">Single Player</button>
+        <button id="multiPlayer">Multiplayer</button>
+      </div>
+    </div>
+    <dialog class="botSection">
+      <button class="goBackBtn botBackButton">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"
+          />
+        </svg>
+      </button>
+      <div class="bot easyBot">
+        <img
+          src="./assets/easyBot.png"
+          alt="easyBot avatar"
+          class="botAvatar"
+        />
+        <span>Easy Mode</span>
+      </div>
+      <div class="bot difficultBot">
+        <img
+          src="./assets/difficultBot.svg"
+          alt="difficultBot avatar"
+          class="botAvatar"
+        />
+        <span>Difficult Mode</span>
+      </div>
+    </dialog>
+    <div class="gameSectionWrapper">
+      <div class="gameSection">
+        <div class="playerOne player">
+          <img src="./assets/avatar.svg" alt="player avatar" class="avatar" />
+          <div class="playerOneName nameSpan">Traasher</div>
+          <div class="playerOneToken token">X</div>
+        </div>
+        <table class="gameBoard">
+          <tr>
+            <td id="0" class="cell"></td>
+            <td id="1" class="cell"></td>
+            <td id="2" class="cell"></td>
+          </tr>
+          <tr>
+            <td id="3" class="cell"></td>
+            <td id="4" class="cell"></td>
+            <td id="5" class="cell"></td>
+          </tr>
+          <tr>
+            <td id="6" class="cell"></td>
+            <td id="7" class="cell"></td>
+            <td id="8" class="cell"></td>
+          </tr>
+        </table>
+        <div class="playerTwo player">
+          <img src="./assets/player2.jpg" alt="player avatar" class="avatar" />
+          <div class="playerTwoName nameSpan">Crusaaaaader</div>
+          <div class="playerTwoToken token">O</div>
+        </div>
+      </div>
+      <button class="goBackBtn gameBackButton">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"
+          />
+        </svg>
+      </button>
+    </div>
+    <dialog class="singleFormModal">
+      <button class="goBackBtn modalBackButton">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"
+          />
+        </svg>
+      </button>
+      <h1>Single Mode</h1>
+      <form method="dialog">
+        <label for="playerName">
+          <input
+            type="text"
+            maxlength="8"
+            id="playerName"
+            placeholder="Player Name"
+          />
+        </label>
+        <button>Enter</button>
+      </form>
+    </dialog>
+    <dialog class="doubleFormModal">
+      <button class="goBackBtn modalBackButton">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"
+          />
+        </svg>
+      </button>
+      <h1>Multiplayer</h1>
+      <form method="dialog">
+        <label for="playerName">
+          <input type="text" maxlength="8" id="player1" placeholder="player1" />
+        </label>
+        <label for="playerName">
+          <input type="text" maxlength="8" id="player2" placeholder="player2" />
+        </label>
+        <button>Enter</button>
+      </form>
+    </dialog>
+    <footer>
+      <span>copyright © 2023 RemyJohnny</span
+      ><button class="sourceCode">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"
+          />
+        </svg>
+        <span>view code</span>
+      </button>
+    </footer>
+    <script src="./script.js"></script>
+  </body>
+</html>
