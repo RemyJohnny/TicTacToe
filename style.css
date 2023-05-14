@@ -80,10 +80,30 @@ td.Dcolor {
   background: none;
   border: none;
 }
+@-webkit-keyframes showdown {
+  from {
+    transform: scale(2);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.botSection::backdrop {
+  background-color: #045de9;
+  background-image: linear-gradient(315deg, #045de9 0%, #76e1ff 74%);
+}
+.botSection[open] {
+  animation: show 1s ease normal;
+  -webkit-animation: showdown 1s ease normal;
+}
+.botSection[open]::backdrop {
+  -webkit-animation: backdrop 1s ease normal;
+}
 .bot {
   display: flex;
   align-items: center;
   margin-top: 2rem;
+  cursor: pointer;
 }
 .botAvatar {
   height: 6rem;
@@ -128,6 +148,9 @@ td.Dcolor {
   width: 2rem;
   fill: #af91f3;
 }
+.goBackBtn:hover svg {
+  fill: aqua;
+}
 
 /****************
     GAME SECTION 
@@ -145,6 +168,54 @@ td.Dcolor {
 table.gameBoard {
   border-collapse: collapse;
   box-shadow: 2px 2px 10px black;
+  position: relative;
+}
+.gameBoard.won::after {
+  position: absolute;
+  content: "YOU WON !";
+  background-image: url(./assets/wow1.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  color: white;
+  font-family: myComicFont, sans-serif;
+  font-size: 3rem;
+  text-align: center;
+  filter: brightness(0.7);
+}
+.gameBoard.lose::after {
+  position: absolute;
+  content: "YOU LOSE !";
+  background-image: url(./assets/thumbDown.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  color: white;
+  font-family: myComicFont, sans-serif;
+  font-size: 3rem;
+  text-align: center;
+  background-color: rgb(194, 2, 2);
+  filter: brightness(0.7);
+}
+.gameBoard.tie::after {
+  position: absolute;
+  background-color: goldenrod;
+  content: "its a tie !";
+  background-image: url(./assets/rock1.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  color: white;
+  font-family: myComicFont, sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+  filter: brightness(0.7);
 }
 td.cell {
   height: 6rem;
@@ -157,7 +228,7 @@ td.cell {
   font-weight: 500;
   cursor: pointer;
   user-select: none;
-  color: white;
+  color: red;
   transition: background-color, color ease-in 0.5s;
 }
 tr:first-child td.cell {
@@ -183,6 +254,19 @@ tr td.cell:last-child {
   background: #440381;
   padding: 0.5rem;
   overflow: hidden;
+}
+.player.turn {
+  border: 3px solid gold;
+  animation: turnAnimate 1s infinite;
+  -webkit-animation: turnAnimate 1s infinite;
+}
+@-webkit-keyframes turnAnimate {
+  from {
+    transform: scale(1.05);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 .avatar {
   height: 3rem;
@@ -218,6 +302,29 @@ tr td.cell:last-child {
   background-color: rgb(255, 0, 144);
   color: white;
 }
+
+#replay {
+  position: absolute;
+  bottom: 1.7rem;
+  left: 45%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  width: 4.7rem;
+  height: 4.7rem;
+  border-radius: 50%;
+  box-shadow: 1px 1px 5px black;
+  background-color: #440381;
+  background-image: linear-gradient(315deg, #440381 0%, #9b7ede 87%);
+  -webkit-animation: turnAnimate 1s infinite;
+  border: 4px solid white;
+  display: none;
+}
+#replay svg {
+  height: 3rem;
+  width: 3rem;
+  fill: white;
+}
 /**************************
     FOOTER SECTION 
 **************************/
@@ -225,7 +332,7 @@ footer {
   position: absolute;
   display: flex;
   align-items: center;
-  top: 95vh;
+  top: 90vh;
   gap: 1rem;
 }
 footer span {
@@ -288,8 +395,24 @@ dialog h1 {
   color: #9b7ede;
 }
 label span {
+  @-webkit-keyframes backdrop {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
   color: #ff6ecf;
   font-family: myCocogooseFont, sans-serif;
+}
+@-webkit-keyframes backdrop {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 label input {
   border: none;
@@ -331,10 +454,10 @@ form button:hover {
 }
 @-webkit-keyframes show {
   from {
-    transform: translateY(-110%);
+    transform: scale(0);
   }
   to {
-    transform: translateY(0%);
+    transform: scale(1);
   }
 }
 @-webkit-keyframes backdrop {
@@ -343,5 +466,31 @@ form button:hover {
   }
   to {
     opacity: 1;
+  }
+}
+a {
+  text-decoration: none;
+}
+@media (orientation: portrait) {
+  .landingSection {
+    flex-direction: column;
+  }
+  .categories button {
+    height: 4.5rem;
+    width: 17rem;
+    font-size: 2rem;
+  }
+  .gameSection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 8.5rem 23rem;
+  }
+  .playerTwo {
+    grid-column: 2/3;
+    grid-row: 1 / 2;
+    justify-self: end;
+  }
+  .gameBoard {
+    grid-column: 1 / 3;
   }
 }
